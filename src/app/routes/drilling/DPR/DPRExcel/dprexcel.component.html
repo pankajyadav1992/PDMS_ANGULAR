@@ -1,0 +1,71 @@
+<breadcrumb></breadcrumb>
+<form [formGroup]="DPRTemplateExcel">
+  <div fxLayout="row wrap" class="matero-row">
+    <div fxFlex="100" fxFlex.gt-sm="100" class="matero-col">
+      <div *ngIf="divForm">
+        <mat-card>
+          <mat-card-title>DPR Upload Excel Data</mat-card-title>
+        
+          <mat-form-field class="m-r-8">
+            <input matInput readonly [matDatepicker]="picker" placeholder="DPR Date(mm-dd-yyy)" formControlName="DPR_DATE">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="submitted && GetRequired.DPR_DATE.errors">This is required</mat-error>
+          </mat-form-field>
+
+        
+
+          <button mat-raised-button color="primary" (click)="onSubmit()" class="m-l-25">Upload Excel</button>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="divExcel">
+    <mat-card>
+      <mat-card-title>Download Templete & Upload Excel File</mat-card-title>
+      <!--<a target="_self" href="C:/Users/Administrator/Desktop/PDMS/src/app/routes/drilling/Upload/NoRigExcel_Template/RIG_COUNT_ALL.xlsx" download="RIG_COUNT_ALL.xlsx">excel</a>-->
+      <!--<button mat-raised-button color="primary" matBadgePosition="before" matBadgeColor="accent" (click)="download()">
+    Download
+  </button>-->
+      <p>
+
+        Click here for Downloading Template for No of Rigs Excel File &nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button color="primary" matBadgePosition="before" matBadgeColor="accent" (click)="CreateDPRExcel()">
+          Download Template
+        </button>
+      </p>
+      <p>
+        Please choose Excel File
+        <input class="form-control" type="file" (change)="onFileChange($event)" #fileInput style="border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer; background-color:gainsboro" />
+        <span style="font-weight:bold;color:green;" *ngIf="progress > 0 && progress < 100"> {{progress}}%</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button color="accent" matBadgePosition="before" matBadgeColor="accent" (click)="UploadExceldprDraft()">
+          Save as Draft
+        </button>
+        <button mat-raised-button color="primary" style="margin-left:10px;" matBadgePosition="before" matBadgeColor="accent" (click)="UploadExceldprSubmit()">
+          Final Submit
+        </button>
+      </p>
+      <div class="cdk-virtual-scroll-data-source-example">
+        <div style="overflow-x:auto;">
+
+          <table class="sjs-table" style="width:100px;">
+            <tbody>
+              <tr *ngFor="let row of data">
+                <td *ngFor="let val of row">
+                  {{val}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</form>
+

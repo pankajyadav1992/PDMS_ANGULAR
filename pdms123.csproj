@@ -1,0 +1,217 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>src</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetCore.NPOI" Version="1.2.2" />
+ 
+    <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+ 
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="IdentityModel" Version="4.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.60" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="17.4.0.49" />
+    <PackageReference Include="System.Data.OleDb" Version="4.7.0" />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="src\app\routes\drilling\Upload\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3013\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3014\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3016\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3017\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3018\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3025\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3026\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3028\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3029\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3030\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3032\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3040\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3042\**" />
+    <Compile Remove="wwwroot\Upload\NoRigExcelUpload\DRL3045\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="src\app\routes\drilling\Upload\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3013\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3014\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3016\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3017\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3018\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3025\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3026\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3028\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3029\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3030\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3032\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3040\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3042\**" />
+    <Content Remove="wwwroot\Upload\NoRigExcelUpload\DRL3045\**" />
+    <EmbeddedResource Remove="src\app\routes\drilling\Upload\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3013\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3014\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3016\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3017\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3018\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3025\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3026\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3028\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3029\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3030\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3032\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3040\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3042\**" />
+    <EmbeddedResource Remove="wwwroot\Upload\NoRigExcelUpload\DRL3045\**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Remove="src\app\routes\drilling\Upload\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3013\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3014\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3016\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3017\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3018\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3025\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3026\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3028\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3029\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3030\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3032\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3040\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3042\**" />
+    <None Remove="wwwroot\Upload\NoRigExcelUpload\DRL3045\**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="src\app\routes\dashboard\logindashboard.component.ts" />
+    <None Remove="src\app\routes\Directive\numbersOnly.ts" />
+    <None Remove="src\app\routes\DrillingTable\DrillingClass.ts" />
+    <None Remove="src\app\routes\DrillingTable\DrillingServices.ts" />
+    <None Remove="src\app\routes\drilling\AnnualDrilling\annualdrilling.component.ts" />
+    <None Remove="src\app\routes\drilling\AnnualDrilling\AnnualDrillingExcel\annualdrillingwxcel.component.ts" />
+    <None Remove="src\app\routes\drilling\CumulativeDrilling\cumulativedrilling.component.ts" />
+    <None Remove="src\app\routes\drilling\CumulativeDrilling\CumulativeDrillingExcel\cumulativedrillingexcel.component.ts" />
+    <None Remove="src\app\routes\drilling\DPR\dpr.component.ts" />
+    <None Remove="src\app\routes\drilling\DPR\DPRExcel\dprexcel.component.ts" />
+    <None Remove="src\app\routes\drilling\drilling-routing.module.ts" />
+    <None Remove="src\app\routes\drilling\drilling.module.ts" />
+    <None Remove="src\app\routes\drilling\RigCount\RigCountExcel\rigcountexcel.component.ts" />
+    <None Remove="src\app\routes\drilling\RigCount\rigcount.component.ts" />
+    <None Remove="src\app\routes\drilling\RigWisePerformance\rigwiseperformance.component.ts" />
+    <None Remove="src\app\routes\drilling\RigWisePerformance\RigWisePerformanceExcel\rigwiseperformanceexcel.component.ts" />
+    <None Remove="src\app\routes\drilling\WellWise\wellwise.component.ts" />
+    <None Remove="src\app\routes\drilling\WellWise\WellWiseExcel\wellwiseexcel.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Upload\DPRExcel_Template\DRILLING_DPR.xlsm" />
+    <None Include="wwwroot\Upload\NoRigExcel_Template\Excel_No_Rig.xlsx" />
+    <None Include="wwwroot\Upload\PerformanceExcel_Template\CUMULATIVE_DRILLING_PERFORMANCE_ALL.xlsx" />
+    <None Include="wwwroot\Upload\PerformanceExcel_Template\CUMULATIVE_DRILLING_PERFORMANCE_NOM.xlsx" />
+    <None Include="wwwroot\Upload\PerformanceExcel_Template\Excel_Performance_Template.xlsx" />
+    <None Include="wwwroot\Upload\PlanPerformanceExcel_Template\ANNUAL_DRILLING_PLAN_ALL.xlsx" />
+    <None Include="wwwroot\Upload\PlanPerformanceExcel_Template\Excel_Performance_BE_Template.xlsx" />
+    <None Include="wwwroot\Upload\PlanPerformanceExcel_Template\Excel_Performance_Template.xlsx" />
+    <None Include="wwwroot\Upload\RIGExcel_Template\Excel_RigEntry_Template.xlsm" />
+    <None Include="wwwroot\Upload\RIGExcel_Template\RIG_WISE_PERFORMANCE_.xlsm" />
+    <None Include="wwwroot\Upload\RIGExcel_Template\RIG_WISE_PERFORMANCE_ALL.xlsm" />
+    <None Include="wwwroot\Upload\RIGExcel_Template\RIG_WISE_PERFORMANCE_NOM.xlsm" />
+    <None Include="wwwroot\Upload\WellExcel_Template\Excel_WellEntry_Template.xlsm" />
+    <None Include="wwwroot\Upload\WellExcel_Template\WELL_WISE_PERFORMANCE_ALL.xlsm" />
+    <None Include="wwwroot\Upload\WellExcel_Template\WELL_WISE_PERFORMANCE_NOM.xlsm" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\routes\logindashboard\logindashboard.component.ts" />
+    <TypeScriptCompile Include="src\app\routes\Directive\numbersOnly.ts" />
+    <TypeScriptCompile Include="src\app\routes\DrillingTable\DrillingClass.ts" />
+    <TypeScriptCompile Include="src\app\routes\DrillingTable\DrillingServices.ts" />
+    <TypeScriptCompile Include="src\app\routes\drilling\AnnualDrilling\annualdrilling.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\drilling\AnnualDrilling\AnnualDrillingExcel\annualdrillingwxcel.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\drilling\CumulativeDrilling\cumulativedrilling.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\drilling\CumulativeDrilling\CumulativeDrillingExcel\cumulativedrillingexcel.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\drilling\DPR\dpr.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\drilling\DPR\DPRExcel\dprexcel.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\drilling\drilling-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\routes\drilling\drilling.module.ts" />
+    <TypeScriptCompile Include="src\app\routes\drilling\RigCount\RigCountExcel\rigcountexcel.component.ts" />
+    <TypeScriptCompile Include="src\app\routes\drilling\RigCount\rigcount.component.ts" />
+    <TypeScriptCompile Include="src\app\routes\drilling\RigWisePerformance\rigwiseperformance.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\drilling\RigWisePerformance\RigWisePerformanceExcel\rigwiseperformanceexcel.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\drilling\WellWise\wellwise.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\drilling\WellWise\WellWiseExcel\wellwiseexcel.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\production\production-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\routes\production\production.module.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Upload\DPRExcelUpload\123764\" />
+    <Folder Include="wwwroot\Upload\NoRigExcelUpload\123764\" />
+    <Folder Include="wwwroot\Upload\PlanPerformanceExcelUpload\" />
+    <Folder Include="wwwroot\Upload\RIGExcelUpload\" />
+    <Folder Include="wwwroot\Upload\WellExcelUpload\" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build  --prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>

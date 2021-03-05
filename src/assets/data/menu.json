@@ -1,0 +1,218 @@
+{
+  "menu": [
+    {
+      "state": "dashboard",
+      "name": "Dashboard",
+      "type": "link",
+      "icon": "dashboard"
+    },
+    {
+      "state": "production",
+      "name": "Production",
+      "type": "sub",
+      "icon": "description",
+      "children": [
+        {
+          "state": "design",
+          "name": "Entery/Correction",
+          "type": "sub",
+          "children": [
+            {
+              "state": "form",
+              "name": "Daily Production",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "Monthly Production",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "Flowing Wells Production",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "Non-Flowing Wells Production",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "Petroleum Planning & Analysis cell(PPAC)",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "state": "",
+          "name": "Reports",
+          "type": "sub",
+          "children": [
+            {
+              "state": "",
+              "name": "Daily Production Data Report ",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "Monthly Production Data Report",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "Flowing Wells Data Report",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "Non-Flowing Wells Data Report",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "PPAC Crude Data Report ",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "PPAC Condensate Data Report",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "PPAC Gas Data Report",
+              "type": "link"
+            }
+
+          ]
+        },
+        {
+          "state": "",
+          "name": "User Management",
+          "type": "sub",
+          "children": [
+            {
+              "state": "",
+              "name": "Pending User Review",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "User Management",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "Admin User Management",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "state": "",
+          "name": "Logs",
+          "type": "sub",
+          "children": [
+            {
+              "state": "",
+              "name": "Data Submission Reports",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "Admin Log Report",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "state": "",
+          "name": "Other",
+          "type": "sub",
+          "children": [
+            {
+              "state": "",
+              "name": "Export Data",
+              "type": "link"
+            },
+            {
+              "state": "",
+              "name": "Cover Letter",
+              "type": "link"
+            }
+          ]
+        }
+
+      ]
+    },
+
+
+   
+
+
+    {
+      "state": "drilling",
+      "name": "Drilling",
+      "type": "sub",
+      "icon": "description",
+      "children": [
+        {
+          "state": "RigCount",
+          "name": "Rig Count",
+          "type": "link"
+        },
+        {
+          "state": "RigWise",
+          "name": "Rig Wise Performance",
+          "type": "link"
+        },
+        {
+          "state": "WellWise",
+          "name": "Well Wise Performance",
+          "type": "link"
+        },
+        {
+          "state": "AnnualDrilling",
+          "name": "Annual Drilling Plan",
+          "type": "link"
+        },
+        {
+          "state": "CumulativeDrilling",
+          "name": "Cumulative Drilling Performance",
+          "type": "link"
+        },
+        {
+          "state": "DPR",
+          "name": "Dpr",
+          "type": "link"
+        }
+      ]
+    },
+
+    {
+      "state": "",
+      "name": "Contract Finance",
+      "type": "link",
+      "icon": "dashboard"
+    },
+    {
+      "state": "",
+      "name": "DSF",
+      "type": "link",
+      "icon": "dashboard"
+    },
+    {
+      "state": "",
+      "name": "OALP",
+      "type": "link",
+      "icon": "dashboard"
+    }
+
+
+
+
+
+  ]
+}
+  

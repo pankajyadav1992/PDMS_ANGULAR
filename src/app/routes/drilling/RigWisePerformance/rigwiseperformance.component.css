@@ -1,0 +1,43 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+  .example-container > * {
+    width: 100%;
+  }
+
+  .example-container form {
+    margin-bottom: 100px;
+  }
+
+    .example-container form > * {
+      margin: 5px 0;
+    }
+
+  .example-container .mat-radio-button {
+    margin: 0 5px;
+  }
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.custom-option{
+   padding-top:2px;
+}
+
+
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+ input.example-right-align::-webkit-outer-spin-button,
+ input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+  }

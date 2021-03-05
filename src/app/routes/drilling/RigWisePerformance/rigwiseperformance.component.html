@@ -1,0 +1,274 @@
+<breadcrumb></breadcrumb>
+<mat-card>
+  <mat-card-title>Rig Wise Performance Form <a routerLink="/drilling/RigWiseExcel" style="font:10">(Upload Excel Rig Wise)</a></mat-card-title>
+  <form [formGroup]="RigWisePerformanceForm">
+    <div fxLayout="row wrap" class="matero-row">
+
+      <div fxFlex="25" fxFlex.gt-sm="25" class="matero-col">
+        <div class="example-container">
+          <mat-form-field>
+            <mat-select placeholder="Select Blocks Type *" formControlName="BLOCK_CATEGORY">
+              <mat-option>-- Select Blocks --</mat-option>
+              <mat-option *ngFor="let Block of BlockTypes" [value]="Block.BLOCK_ID"> {{Block.BLOCK_NAME}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.BLOCK_CATEGORY.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Select Year *" formControlName="YEAR">
+              <mat-option>-- Select Year --</mat-option>
+              <mat-option *ngFor="let yyyy of Years" [value]="yyyy.Id">
+                {{yyyy.Year}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.YEAR.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Select Month *" formControlName="MONTH">
+              <mat-option>-- Select Month --</mat-option>
+              <mat-option *ngFor="let mm of Months" [value]="mm.Month_Id">
+                {{mm.Month_Name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.MONTH.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Select Operational Area *" formControlName="OPERATION_AREA_ID">
+              <mat-option>-- Select Operational Area --</mat-option>
+              <mat-option *ngFor="let area of OperationalArea" [value]="area.Area_Id">
+                {{area.Area_Name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.OPERATION_AREA_ID.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Rig Name *" formControlName="RIG_NAME" type="text">
+            <mat-error *ngIf="submitted && GetRequired.RIG_NAME.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Select Operating Status *" formControlName="RIG_OPERATING_STATUS">
+              <mat-option>-- Select Operating Status --</mat-option>
+              <mat-option *ngFor="let op of OperatingStatus" [value]="op.Status_Id">
+                {{op.Status_Name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.RIG_OPERATING_STATUS.errors">This is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Rig Type *" formControlName="RIG_TYPE" type="text">
+            <mat-error *ngIf="submitted && GetRequired.RIG_TYPE.errors">This is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxFlex="25" fxFlex.gt-sm="25" class="matero-col">
+        <div class="example-container">
+          <mat-form-field>
+            <input  matInput  placeholder="Exploratory Wells(Nos.)" formControlName="EXP_WELLS" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error step="0.001">-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Exploratory Meterage(m)" formControlName="EXP_MET" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Devlopment Wells(Nos.)" formControlName="DEV_WELLS" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Devlopment Meterage(m)" formControlName="DEV_MET" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Rig Mode-Wise Time Break-up Production Rig-Building days" formControlName="RIG_MODE_TIME_BREAKUP_RB" pattern="^[1-9]\d*(\.\d+)?$" >
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Rig Mode-Wise Time Break-up Production Drilling days" formControlName="RIG_MODE_TIME_BREAKUP_DR"  pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Rig Mode-Wise Time Break-up Production Testing days" formControlName="RIG_MODE_TIME_BREAKUP_PT" pattern="^[1-9]\d*(\.\d+)?$" >
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxFlex="25" fxFlex.gt-sm="25" class="matero-col">
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Cap Rep Out Cycle Days" formControlName="OUTCYCLE_CAPREP"  pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Other Out Cycle Days" formControlName="OUTCYCLE_OTH"  pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Non-Productive Time Well Complition Days" formControlName="NONPRD_WELL_COMPLICATION_DAY" pattern="^[1-9]\d*(\.\d+)?$" >
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Non-Productive Time Well Complition Percentage" formControlName="NONPRD_WELL_COMPLICATION_PER"  pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Non-Productive Time Repair & S/Down Days" formControlName="NONPRD_WELL_REPAIR_DAY" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Non-Productive Time Repair & S/Down Percentage" formControlName="NONPRD_WELL_REPAIR_PER" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Cycle Days" formControlName="CYCLE_DAYS" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+
+        </div>
+      </div>
+
+      <div fxFlex="25" fxFlex.gt-sm="25" class="matero-col">
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Commercial Days" formControlName="COMMERCIAL_DAYS" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Cycle Speed Exploratory" formControlName="CYCLE_EXP" pattern="^[1-9]\d*(\.\d+)?$" >
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Cycle Speed Devlopment" formControlName="CYCLE_DEV" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Speed Cycle" formControlName="CYCLE_SPEED" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Commercial Speed Exploratory" formControlName="COMMERCIAL_EXP" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Commercial Speed Devlopment" formControlName="COMMERCIAL_DEV" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Commercial Speed" formControlName="COMMERCIAL_SPEED" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<input matInput placeholder="Commercial Speed" formControlName="COMMERCIAL_SPEED" class="example-right-align"  value="0.00">-->
+            <!--<span matPrefix>$&nbsp;</span>-->
+            <!--<mat-error *ngIf="submitted && GetRequired.TotalOnshoreOffShore.errors">This is required</mat-error>-->
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxFlex="100" fxFlex.gt-sm="100" class="matero-col">
+        <div class="example-container">
+          <mat-form-field>
+            <textarea matInput placeholder="Remarks" formControlName="Remarks"></textarea>
+          </mat-form-field>
+          <div *ngIf="btnSubmitvisibility">
+            <button mat-raised-button color="primary" (click)="onDraft()">Draft</button>
+            <button mat-raised-button color="primary" (click)="onSubmit()" style="margin-left:10px;">Submit</button>
+          </div>
+          <div *ngIf="btnUpdatevisibility">
+            <button mat-raised-button color="accent" (click)="onDraftUpdate()">Draft </button>
+            <button mat-raised-button color="accent" (click)="onDraftSubmit()" style="margin-left:10px;">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-card>
+<div fxLayout="row wrap" class="matero-row">
+
+  <div fxFlex="100" fxFlex.gt-sm="100" class="matero-col">
+
+    <mat-card>
+      <mat-card-title>Rig Wise Performance Search</mat-card-title>
+      <form [formGroup]="RigWisePerformanceSearch">
+        <div>
+          <mat-form-field class="m-r-8">
+            <mat-select placeholder="Select Blocks Type *" formControlName="BLOCK_CATEGORY">
+              <mat-option>-- Select Blocks --</mat-option>
+              <mat-option *ngFor="let bb of BlockTypes" [value]="bb.BLOCK_ID"> {{bb.BLOCK_NAME}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="submittedsearch && GetRequiredSearch.BLOCK_CATEGORY.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="m-r-8">
+            <mat-select placeholder="Select Year *" formControlName="YEAR">
+              <mat-option>-- Select Year --</mat-option>
+              <mat-option *ngFor="let yy of Years" [value]="yy.Id">
+                {{yy.Year}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submittedsearch && GetRequiredSearch.YEAR.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="m-r-8">
+            <mat-select placeholder="Select Month *" formControlName="MONTH">
+              <mat-option>-- Select Month --</mat-option>
+              <mat-option *ngFor="let mm of Months" [value]="mm.Month_Id">
+                {{mm.Month_Name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submittedsearch && GetRequiredSearch.MONTH.errors">This is required</mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="onSearch()" class="m-l-25">Search</button>
+        </div>
+      </form>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Rig Wise Details</mat-card-title>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="Block">
+            <th mat-header-cell *matHeaderCellDef> Block </th>
+            <td mat-cell *matCellDef="let row"> {{row.BlockCategoryName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Months">
+            <th mat-header-cell *matHeaderCellDef>Month </th>
+            <td mat-cell *matCellDef="let row"> {{row.MonthName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Years">
+            <th mat-header-cell *matHeaderCellDef> Year </th>
+            <td mat-cell *matCellDef="let row"> {{row.YEAR}} </td>
+          </ng-container>
+          <ng-container matColumnDef="OperationalArea">
+            <th mat-header-cell *matHeaderCellDef> Operational Area </th>
+            <td mat-cell *matCellDef="let row"> {{row.OperationalAreaName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="OperatingStatus">
+            <th mat-header-cell *matHeaderCellDef> Operating Status </th>
+            <td mat-cell *matCellDef="let row"> {{row.OperatingStatusName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="RigName">
+            <th mat-header-cell *matHeaderCellDef>Rig Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.RIG_NAME}} </td>
+          </ng-container>
+          <ng-container matColumnDef="RigType">
+            <th mat-header-cell *matHeaderCellDef>RigType</th>
+            <td mat-cell *matCellDef="let row"> {{row.RIG_TYPE}} </td>
+          </ng-container>         
+          <!--<ng-container matColumnDef="Remarks">
+            <th mat-header-cell *matHeaderCellDef>Remarks </th>
+            <td mat-cell *matCellDef="let row"> {{row.REMARKS}} </td>
+          </ng-container>-->
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef>Status </th>
+            <td mat-cell *matCellDef="let row"> {{row.STATUS}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Edit/View">
+            <th mat-header-cell *matHeaderCellDef> Edit/View</th>
+            <td mat-cell *matCellDef="let row">
+              <button (click)="EditRigWiseDetails(row)" style="margin-left: 10px;" class="btn btn-info"><mat-icon>edit</mat-icon></button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card>
+  </div>
+</div>

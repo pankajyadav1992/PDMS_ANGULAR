@@ -1,0 +1,228 @@
+<breadcrumb></breadcrumb>
+<mat-card>
+  <mat-card-title>Annual Drilling Plan Form  <a routerLink="/drilling/AnnualDrillingExcel" style="font:10">(Upload Excel Annual Drilling Plan)</a></mat-card-title>
+  <form [formGroup]="ADPForm">
+    <div fxLayout="row wrap" class="matero-row">
+      <div fxFlex="25" fxFlex.gt-sm="25" class="matero-col">
+        <div class="example-container">
+          <mat-form-field>
+            <mat-select placeholder="Select Blocks Type *" formControlName="BLOCK_CATEGORY">
+              <mat-option>-- Select Blocks --</mat-option>
+              <mat-option *ngFor="let Block of BlockTypes" [value]="Block.BLOCK_ID"> {{Block.BLOCK_NAME}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.BLOCK_CATEGORY.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <!--<mat-select placeholder="Select Year *" formControlName="YEAR">
+              <mat-option>-- Select Year --</mat-option>
+              <mat-option *ngFor="let yyyy of Years" [value]="yyyy.Id">
+                {{yyyy.Year}}
+              </mat-option>
+            </mat-select>-->
+            <mat-select placeholder="Select Year *" formControlName="YEAR">
+              <mat-option>---Select Year---</mat-option>
+              <mat-option value="2019-2020">2019-2020</mat-option>
+              <mat-option value="2020-2021">2020-2021</mat-option>
+              <mat-option value="2021-2022">2021-2022</mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.YEAR.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <!--<mat-select placeholder="Select Quarter Type *" formControlName="QUARTER">
+              <mat-option>-- Select Month --</mat-option>
+              <mat-option *ngFor="let mm of Months" [value]="mm.Month_Id">
+                {{mm.Month_Name}}
+              </mat-option>
+            </mat-select>-->
+
+            <mat-select placeholder="Select Quarter Type *" formControlName="QUARTER_NO">
+              <mat-option>---Select Quarter Type---</mat-option>
+              <mat-option value="1">Quarter I</mat-option>
+              <mat-option value="2">Quarter II</mat-option>
+              <mat-option value="3">Quarter III</mat-option>
+              <mat-option value="4">Quarter IV</mat-option>
+              <mat-option value="5">Annual</mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.QUARTER_NO.errors">This is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxFlex="25" fxFlex.gt-sm="25" class="matero-col">
+        <div class="example-container">
+          <mat-form-field>
+            <mat-select placeholder="Select Operating Status *" formControlName="RIG_OPERATE_STATUS">
+              <mat-option>-- Select Operating Status --</mat-option>
+              <mat-option *ngFor="let op of OperatingStatus" [value]="op.Status_Id">
+                {{op.Status_Name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.RIG_OPERATE_STATUS.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Select Well Category *" formControlName="WELL_CATEGORY_ID">
+              <mat-option>-- Select Well Category --</mat-option>
+              <mat-option *ngFor="let well of WellCategory" [value]="well.Well_Category_Id">
+                {{well.Well_Category_Name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.WELL_CATEGORY_ID.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Select Operational Area *" formControlName="OPERATION_AREA_ID">
+              <mat-option>-- Select Operational Area --</mat-option>
+              <mat-option *ngFor="let area of OperationalArea" [value]="area.Area_Id">
+                {{area.Area_Name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.OPERATION_AREA_ID.errors">This is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxFlex="25" fxFlex.gt-sm="25" class="matero-col">
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="No. of Wells" formControlName="NO_WELLS" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.NO_WELLS.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field> 
+            <input matInput placeholder="Metarage" formControlName="METARAGE" (change)="onChangeMETARAGE($event)" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.METARAGE.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="No. of Rig Months" formControlName="RIG_MONTHS"  (change)="onChangeRIG_MONTHS($event)" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.RIG_MONTHS.errors">This is required</mat-error>-->
+          </mat-form-field>
+         
+        </div>
+      </div>
+
+      <div fxFlex="25" fxFlex.gt-sm="25" class="matero-col">
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Commercial Speed" formControlName="COMMERCIAL_SPEED" pattern="^[1-9]\d*(\.\d+)?$">
+            <!--<mat-error *ngIf="submitted && GetRequired.COMMERCIAL_SPEED.errors">This is required</mat-error>-->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Cycle Speed" formControlName="CYCLE_SPEED" >
+            <!--<mat-error *ngIf="submitted && GetRequired.CYCLE_SPEED.errors">This is required</mat-error>-->
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxFlex="100" fxFlex.gt-sm="100" class="matero-col">
+        <div class="example-container">
+          <div *ngIf="btnSubmitvisibility">
+            <button mat-raised-button color="primary" (click)="onDraft()">Draft</button>
+            <button mat-raised-button color="primary" (click)="onSubmit()" style="margin-left:10px;">Submit</button>
+          </div>
+          <div *ngIf="btnUpdatevisibility">
+            <button mat-raised-button color="accent" (click)="onDraftUpdate()">Draft </button>
+            <button mat-raised-button color="accent" (click)="onDraftSubmit()" style="margin-left:10px;">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-card>
+
+<div fxLayout="row wrap" class="matero-row">
+
+  <div fxFlex="100" fxFlex.gt-sm="100" class="matero-col">
+    <mat-card>
+      <mat-card-title>Annual Drilling Plan Search</mat-card-title>
+      <form [formGroup]="ADPSearch">
+        <div>
+          <mat-form-field class="m-r-8">
+            <mat-select placeholder="Select Blocks Type *" formControlName="BLOCK_CATEGORY">
+              <mat-option>-- Select Blocks --</mat-option>
+              <mat-option *ngFor="let Block of BlockTypes" [value]="Block.BLOCK_ID"> {{Block.BLOCK_NAME}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="submittedsearch && GetRequiredSearch.BLOCK_CATEGORY.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="m-r-8">
+            <mat-select placeholder="Select Year *" formControlName="YEAR">
+              <mat-option>---Select Year---</mat-option>
+              <mat-option value="2019-2020">2019-2020</mat-option>
+              <mat-option value="2020-2021">2020-2021</mat-option>
+              <mat-option value="2021-2022">2021-2022</mat-option>
+            </mat-select>
+            <mat-error *ngIf="submittedsearch && GetRequiredSearch.YEAR.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="m-r-8">
+            <!--<mat-select placeholder="Select Quarter Type *" formControlName="QUARTER">
+              <mat-option>-- Select Month --</mat-option>
+              <mat-option *ngFor="let mm of Months" [value]="mm.Month_Id">
+                {{mm.Month_Name}}
+              </mat-option>
+             </mat-select>-->
+            <mat-select placeholder="Select Quarter Type *" formControlName="QUARTER_NO">
+              <mat-option>---Select Quarter Type---</mat-option>
+              <!--<mat-option value="1">Quarter I</mat-option>
+  <mat-option value="2">Quarter II</mat-option>
+  <mat-option value="3">Quarter III</mat-option>
+  <mat-option value="4">Quarter IV</mat-option>
+  <mat-option value="5">Annual</mat-option>-->
+              <mat-option value="5">BE</mat-option>
+              <mat-option value="6">RE</mat-option>
+            </mat-select>
+            <mat-error *ngIf="submittedsearch && GetRequiredSearch.QUARTER_NO.errors">This is required</mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="onSearch()" class="m-l-25">Search</button>
+        </div>
+      </form>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Annual Drilling Plan Details</mat-card-title>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="BlockTypes">
+            <th mat-header-cell *matHeaderCellDef> Block Type </th>
+            <td mat-cell *matCellDef="let row"> {{row.BlockName}}  </td>
+          </ng-container>
+          <ng-container matColumnDef="Years">
+            <th mat-header-cell *matHeaderCellDef> Year </th>
+            <td mat-cell *matCellDef="let row"> {{row.YEAR}} </td>
+          </ng-container>
+          <ng-container matColumnDef="QuarterType">
+            <th mat-header-cell *matHeaderCellDef>Quarter Type </th>
+            <td mat-cell *matCellDef="let row"> {{row.QuarterType}} </td>
+          </ng-container>
+          <ng-container matColumnDef="OperatingStatus">
+            <th mat-header-cell *matHeaderCellDef>Operating Status </th>
+            <td mat-cell *matCellDef="let row"> {{row.OperatingStatusName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="WellCategory">
+            <th mat-header-cell *matHeaderCellDef>Well Category </th>
+            <td mat-cell *matCellDef="let row"> {{row.WellCategoryName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="OperationalArea">
+            <th mat-header-cell *matHeaderCellDef>Operational Area </th>
+            <td mat-cell *matCellDef="let row"> {{row.OperationalAreaName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef>Status </th>
+            <td mat-cell *matCellDef="let row"> {{row.STATUS}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Edit/View">
+            <th mat-header-cell *matHeaderCellDef> Edit/View</th>
+            <td mat-cell *matCellDef="let row">
+              <button (click)="EditAnnualDetails(row)" style="margin-left: 10px;" class="btn btn-info"><mat-icon>edit</mat-icon></button>
+
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card>
+
+  </div>
+
+
+
+</div>

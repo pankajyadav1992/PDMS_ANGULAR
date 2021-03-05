@@ -1,0 +1,90 @@
+<breadcrumb></breadcrumb>
+<form [formGroup]="RigCountTemplateExcel">
+  <div fxLayout="row wrap" class="matero-row">
+    <div fxFlex="100" fxFlex.gt-sm="100" class="matero-col">
+      <div *ngIf="divForm">
+        <mat-card>
+          <mat-card-title>Rig Count Upload Excel Data</mat-card-title>
+          <mat-form-field class="m-r-8">
+            <mat-select placeholder="Select Blocks Type *" formControlName="BlockTypes">
+              <mat-option>-- Select Blocks --</mat-option>
+              <mat-option *ngFor="let Block of BlockTypes" [value]="Block.BLOCK_ID"> {{Block.BLOCK_NAME}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.BlockTypes.errors">This is required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="m-r-8">
+            <mat-select placeholder="Select Year *" formControlName="Years">
+              <mat-option>-- Select Year --</mat-option>
+              <mat-option *ngFor="let yyyy of Years" [value]="yyyy.Id">
+                {{yyyy.Year}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.Years.errors">This is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="m-r-8">
+            <mat-select placeholder="Select Month *" formControlName="Months">
+              <mat-option>-- Select Month --</mat-option>
+              <mat-option *ngFor="let mm of Months" [value]="mm.Month_Id">
+                {{mm.Month_Name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="submitted && GetRequired.Months.errors">This is required</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" (click)="onSubmit()" class="m-l-25">Upload Excel</button>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="divExcel">
+    <mat-card>
+      <mat-card-title>Download Templete & Upload Excel File</mat-card-title>
+      <!--<a target="_self" href="C:/Users/Administrator/Desktop/PDMS/src/app/routes/drilling/Upload/NoRigExcel_Template/RIG_COUNT_ALL.xlsx" download="RIG_COUNT_ALL.xlsx">excel</a>-->
+      <!--<button mat-raised-button color="primary" matBadgePosition="before" matBadgeColor="accent" (click)="download()">
+    Download
+  </button>-->
+      <p>
+
+        Click here for Downloading Template for No of Rigs Excel File &nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button color="primary" matBadgePosition="before" matBadgeColor="accent" (click)="DownloadTempleteRigCountExcel()">
+          Download Template
+        </button>
+      </p>
+      <p>
+        Please choose Excel File
+        <input class="form-control" type="file" (change)="onFileChange($event)" #fileInput style="border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer; background-color:gainsboro" />
+        <span style="font-weight:bold;color:green;" *ngIf="progress > 0 && progress < 100"> {{progress}}%</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button color="accent" matBadgePosition="before" matBadgeColor="accent" (click)="UploadExcelRigSaveDraft()">
+          Save as Draft
+        </button>
+        <button mat-raised-button color="primary" style="margin-left:10px;" matBadgePosition="before" matBadgeColor="accent" (click)="UploadExcelRigFinalSubmit()">
+          Final Submit
+        </button>
+      </p>
+
+      <div class="cdk-virtual-scroll-data-source-example">
+        <div style="overflow-x:auto;">
+
+          <table class="sjs-table" style="width:100px;">
+            <tbody>
+              <tr *ngFor="let row of data">
+                <td *ngFor="let val of row">
+                  {{val}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        </div>
+    </mat-card>
+  </div>
+
+</form>
+
